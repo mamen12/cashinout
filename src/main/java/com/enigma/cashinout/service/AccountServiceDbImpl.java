@@ -17,13 +17,12 @@ public class AccountServiceDbImpl {
 
     public List<Account> findAllAccount(){return accountRepo.getAllAccount();}
 
-    String uuid = UUID.randomUUID().toString().replace("-", "");
 
     @Transactional
     public Account register(Account account){
+        String uuid = UUID.randomUUID().toString().replace("-", "");
         account.setId(uuid);
         accountRepo.insertAccount(account.getId(), account.getName(), account.getEmail(), account.getNumberPhone(), account.getAddress(), account.getPassword());
         return account;
     }
-
 }
