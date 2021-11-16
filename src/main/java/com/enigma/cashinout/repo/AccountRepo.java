@@ -17,14 +17,22 @@ public interface AccountRepo extends JpaRepository<Account, String> {
     List<Account> getAllAccount();
 
     @Modifying
-    @Query(value = "INSERT INTO mst_account(id, name, email, number_phone, address, password) " +
-            "values (:id, :name, :email, :numberPhone, :address, :password)", nativeQuery = true)
+    @Query(value = "INSERT INTO mst_account(id, name, email, number_phone, ballance, address, password) " +
+            "values (:id, :name, :email, :numberPhone, :ballance, :address, :password)", nativeQuery = true)
     public void insertAccount(@Param("id") String id,
                               @Param("name") String name,
                               @Param("email") String email,
                               @Param("numberPhone") String numberPhone,
+                              @Param("ballance") Double ballance,
                               @Param("address") String address,
                               @Param("password") String password);
+
+    @Query(value = "SELECT * FROM mst_account WHERE id = :id", nativeQuery = true)
+    public Account getAccountById(@Param("id") String id);
+
+    @Modifying
+    @Query(value = "DELETE FROM mst_account WHERE id = :id", nativeQuery = true)
+    public void deleteAccountById(@Param("id") String id);
 
 }
 

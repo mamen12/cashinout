@@ -1,9 +1,6 @@
 package com.enigma.cashinout.entity;
-
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +14,13 @@ public class Account {
     private String numberPhone;
     private String address;
     private String password;
+    private Double ballance = 0.0;
+
+
+
+    @OneToMany(mappedBy = "account")
+    private List<Cash> cashes;
+
 
     public Account() {
     }
@@ -33,8 +37,8 @@ public class Account {
         this.id = id;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setBallance(Double ballance) {
+        this.ballance = ballance;
     }
 
     public String getId() {
@@ -59,6 +63,14 @@ public class Account {
 
     public String getPassword() {
         return password;
+    }
+
+    public Double getBallance() {
+        return ballance;
+    }
+
+    public List<Cash> getCashes() {
+        return cashes;
     }
 
     @Override
