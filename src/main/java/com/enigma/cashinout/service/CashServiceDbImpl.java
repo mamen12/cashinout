@@ -5,6 +5,8 @@ import com.enigma.cashinout.entity.Cash;
 import com.enigma.cashinout.repo.AccountRepo;
 import com.enigma.cashinout.repo.CashRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -34,10 +36,8 @@ public class CashServiceDbImpl {
 
     @Transactional
     public Cash addCash(Cash cash) {
-        String uuid = UUID.randomUUID().toString().replace("-", "");
-        cash.setId(uuid);
-        String slug = cash.getName().replace(" ", "-");
-        cash.setSlug(slug);
+        cashReplace(cash);
+
         Account account = accountService.getAccountId(cash.getAccountIdTransient());
         cash.setAccount(account);
         if (cash.getAmount() < 0) {
@@ -54,6 +54,13 @@ public class CashServiceDbImpl {
 
         cashRepo.addCash(cash.getId(), cash.getName(), cash.getSlug(), cash.getDescription(), cash.getAmount(), cash.getType(), cash.getWhenTransaction(), cash.getAccount().getId());
         return cash;
+    }
+
+    private void cashReplace(Cash cash) {
+        String uuid = UUID.randomUUID().toString().replace("-", "");
+        cash.setId(uuid);
+        String slug = cash.getName().replace(" ", "-");
+        cash.setSlug(slug);
     }
 
     public List<Cash> getCashesByAccountId(String id) {

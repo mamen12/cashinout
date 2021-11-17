@@ -13,6 +13,7 @@ public class Account {
     private String email;
     private String numberPhone;
     private String address;
+    private String username;
     private String password;
     private Double ballance = 0.0;
 
@@ -71,6 +72,18 @@ public class Account {
 
     public List<Cash> getCashes() {
         return cashes;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override

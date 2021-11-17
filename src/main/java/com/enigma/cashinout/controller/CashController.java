@@ -4,6 +4,8 @@ import com.enigma.cashinout.entity.Account;
 import com.enigma.cashinout.entity.Cash;
 import com.enigma.cashinout.service.CashServiceDbImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,11 +35,12 @@ public class CashController {
     public void deleteCash(@PathVariable String id){
         cashService.deleteCashById(id);
     }
+
     @GetMapping("/cashes/debit")
     public List<Cash> getCashesTypeDebit() {
         return cashService.getCashesTypeDebit();
     }
-    @GetMapping("/cashes/debit")
+    @GetMapping("/cashes/credit")
     public List<Cash> getCashesTypeCredit() {
         return cashService.getCashesTypeDebit();
     }
