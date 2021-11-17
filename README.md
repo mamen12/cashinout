@@ -17,7 +17,7 @@ mvn clean install
 ```
 Running apps
 ```
-java -jar target/shopaa-boot
+java -jar target/cashinout-0.0.1-SNAPSHOT.jar
 ```
 
 # API
