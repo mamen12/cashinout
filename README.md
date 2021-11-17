@@ -10,7 +10,7 @@ is a study case of developing REST API using Springboot
 * [Postgres Sql](https://www.postgresql.org/download/)
 
 ## Installation
-Use the package manager [maven](https://maven.apache.org/) to install and build shopaa app.
+Use the package manager [maven](https://maven.apache.org/) to install and build cashinout app.
 
 ``` 
 mvn clean install
