@@ -100,7 +100,7 @@ java -jar target/cashinout-0.0.1-SNAPSHOT.jar
 localhost:8082/api/chases/61044d842fad4c0b82835ccffbc0421d
 ```
 
-### Get All Chases by type DEBIT
+### Get All Cashes by type DEBIT
 ```
 localhost:8082/api/cashes/debit
 ```
@@ -130,7 +130,7 @@ localhost:8082/api/cashes/debit
 ]
 ```
 
-### Get All Chases by type CREDIT
+### Get All Cashes by type CREDIT
 ```
 localhost:8082/api/cashes/credit
 ```
@@ -150,7 +150,8 @@ localhost:8082/api/cashes/credit
 ]
 ```
 
-## Get Chases By Id Account
+## Get cashes By Id Account
 ```
 localhost:8082/api/cashes/e92410326e9949f69308ebf2984bf67e
 ```
+#### get cashes filter one month, first day of month  between last day of month
