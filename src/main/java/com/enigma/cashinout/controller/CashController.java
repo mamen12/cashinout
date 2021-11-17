@@ -40,9 +40,10 @@ public class CashController {
     public List<Cash> getCashesTypeDebit() {
         return cashService.getCashesTypeDebit();
     }
+
     @GetMapping("/cashes/credit")
     public List<Cash> getCashesTypeCredit() {
-        return cashService.getCashesTypeDebit();
+        return cashService.getCashesTypeCredit();
     }
 
 }

@@ -42,6 +42,14 @@ public class Cash {
         this.account = account;
     }
 
+    public Cash(String name, String slug, String description, Double amount, String accountIdTransient) {
+        this.name = name;
+        this.slug = slug;
+        this.description = description;
+        this.amount = amount;
+        this.accountIdTransient = accountIdTransient;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -98,6 +106,16 @@ public class Cash {
         return accountIdTransient;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cash cash = (Cash) o;
+        return Objects.equals(id, cash.id) && Objects.equals(name, cash.name) && Objects.equals(slug, cash.slug) && Objects.equals(description, cash.description) && Objects.equals(amount, cash.amount) && Objects.equals(type, cash.type) && Objects.equals(whenTransaction, cash.whenTransaction) && Objects.equals(accountIdTransient, cash.accountIdTransient) && Objects.equals(account, cash.account);
+    }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, slug, description, amount, type, whenTransaction, accountIdTransient, account);
+    }
 }

@@ -26,11 +26,22 @@ public class Account {
     public Account() {
     }
 
-    public Account(String name, String email, String numberPhone, String address, String password) {
+    public Account(String name, String email, String numberPhone, String address, String password, String username) {
         this.name = name;
         this.email = email;
         this.numberPhone = numberPhone;
         this.address = address;
+        this.password = password;
+        this.username = username;
+    }
+
+    public Account(String id, String name, String email, String numberPhone, String address, String username, String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.numberPhone = numberPhone;
+        this.address = address;
+        this.username = username;
         this.password = password;
     }
 
